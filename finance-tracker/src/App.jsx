@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
-const API_URL = "https://smartfinance-backend.onrender.com";// ← your Crow backend
+const API_URL = "https://smartfinance-r1am.onrender.com";// ← your Crow backend
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────────
 const CATEGORIES = ["Food","Rent","Transport","Entertainment","Health","Shopping","Utilities","Education","Travel","Other"];
