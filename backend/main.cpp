@@ -46,9 +46,9 @@ crow::json::wvalue to_json(const Transaction& t) {
 }
 
 void add_cors(crow::response& res) {
-    res.add_header("Access-Control-Allow-Origin", "*");
-    res.add_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
-    res.add_header("Access-Control-Allow-Headers", "Content-Type");
+    res.set_header("Access-Control-Allow-Origin", "*");
+    res.set_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+    res.set_header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 }
 
 int main() {
@@ -148,6 +148,14 @@ int main() {
 
         crow::response res(200, R"({"message":"Deleted successfully"})");
         res.add_header("Content-Type", "application/json");
+        add_cors(res);
+        return res;
+    });
+
+        CROW_ROUTE(app, "/api/summary")
+    .methods("OPTIONS"_method)
+    ([]() {
+        crow::response res(204);
         add_cors(res);
         return res;
     });
